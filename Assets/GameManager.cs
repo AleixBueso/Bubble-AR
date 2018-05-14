@@ -56,32 +56,24 @@ public class GameManager : MonoBehaviour {
 
     private void CheckTrippleBubble(Bubble b)
     {
-       Collider[] cols =  b.GetBubbleColliders();
-       int colSize = cols.Length;
+       List<Bubble> colBubbles =  b.GetBubbleColliders();
 
-        for(int i = 0; i < colSize; i++)
+        for(int i = 0; i < colBubbles.Count; i++)
         {
-            if (cols[i].tag == "Bubble" && cols[i] != b)
-            {
-                Bubble x1 = cols[i].gameObject.GetComponent<Bubble>();
+                Bubble x1 = colBubbles[i];
                 if (x1.color == b.color)
                 {
-                    Collider[] cols_x1 = x1.GetBubbleColliders();
-                    int size_x1 = cols.Length;
-
-                    for (int j = 0; j < size_x1; j++)
+                    List<Bubble> colBubbles2 = x1.GetBubbleColliders();
+                    for (int j = 0; j < colBubbles2.Count; j++)
                     {
-                        if (cols_x1[j].tag == "Bubble")
+                        Bubble x2 = colBubbles2[j].gameObject.GetComponent<Bubble>();
+
+                        if (x2.color == x1.color && x2 != b && x2 != x1)
                         {
-                            Bubble x2 = cols[j].gameObject.GetComponent<Bubble>();
-                            if (x2.color == x1.color && x2 != b && x2 != x1)
-                            {
-                                PopSerie(b, x1, x2);
-                            }
+                            PopSerie(b, x1, x2);
                         }
                     }
                 }
-            }
         }
     }
 

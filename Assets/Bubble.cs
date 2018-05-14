@@ -22,9 +22,17 @@ public class Bubble : MonoBehaviour
         transform.localPosition = new Vector3(transform.localPosition.x, 0, transform.localPosition.z);
     }
 
-    public Collider[] GetBubbleColliders()
+    public List<Bubble> GetBubbleColliders()
     {
-        Collider[] ret = Physics.OverlapSphere(transform.position, radius);
+        List<Bubble> ret = new List<Bubble>();
+        Collider[] cols = Physics.OverlapSphere(transform.position, radius);
+
+        for (int i = 0; i < cols.Length; i++)
+        {
+            if (cols[i].gameObject.tag == "Bubble" && cols[i].gameObject != this.gameObject)
+                ret.Add(cols[i].GetComponent<Bubble>());
+        }
+
         return ret;
     }
 
