@@ -11,7 +11,7 @@ public class Shooter : MonoBehaviour {
 	void Update () {
 		
 
-        if(Input.GetButton("Fire1"))
+        if(Input.GetButtonUp("Fire1"))
         {
             CreateBubble();
         }
@@ -19,7 +19,7 @@ public class Shooter : MonoBehaviour {
 
     private void CreateBubble()
     {
-        GameObject go = Instantiate(bubble, spawnPosition.position, transform.rotation).gameObject;
+        GameObject go = Instantiate(bubble, transform.position, transform.rotation).gameObject;
         go.GetComponent<Rigidbody>().AddForce(transform.forward, ForceMode.Impulse);
     }
 }

@@ -15,7 +15,8 @@ public class Gravity : MonoBehaviour {
             Vector3 forceDirection = transform.position - collider.transform.position;
 
             // apply force on target towards me
-            collider.GetComponent<Rigidbody>().AddForce(forceDirection.normalized * pullForce * Time.fixedDeltaTime);
+            if(collider.GetComponent<Rigidbody>())
+                collider.GetComponent<Rigidbody>().AddForce(forceDirection.normalized * pullForce * Time.fixedDeltaTime);
         }
     }
 }
