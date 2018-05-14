@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
-
     private GameManager gm;
     public Color color;
     public float radius;
     [SerializeField] Renderer render;
     [SerializeField] Collider col;
-
 
     private void Start()
     {
