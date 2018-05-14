@@ -17,6 +17,8 @@ public class Bubble : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         color = render.material.color;
 
+        InitColor();
+
         gm.all_bubbles.Add(this);
     }
 
@@ -24,6 +26,12 @@ public class Bubble : MonoBehaviour
     {
         Collider[] ret = Physics.OverlapSphere(transform.position, radius);
         return ret;
+    }
+
+    private void InitColor()
+    {
+        int rnd = Random.RandomRange(0, 4);
+        color = gm.colors[rnd];
     }
 
 }

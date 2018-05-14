@@ -14,7 +14,6 @@ public class Shooter : MonoBehaviour {
 
         count = Time.deltaTime;
 
-
         if(count > 2)
         {
             if (Input.GetButtonUp("Fire1"))
@@ -22,8 +21,7 @@ public class Shooter : MonoBehaviour {
                 CreateBubble();
                 count = 0;
             }
-        }
-       
+        }     
 	}
 
     private void CreateBubble()

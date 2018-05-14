@@ -6,17 +6,41 @@ public class GameManager : MonoBehaviour {
 
 
     public List<Bubble> all_bubbles;
+
     public int points = 0;
+    public float gameTimer;
+    public float maxTime;
+    public int maxPoints;
+
+    public Color[] colors;
 
 	// Use this for initialization
 	void Start () {
+        colors = new Color[5];
+
+        colors[0] = Color.blue;
+        colors[1] = Color.red;
+        colors[2] = Color.yellow;
+        colors[3] = Color.green;
+        colors[4] = Color.cyan;
 
         all_bubbles = new List<Bubble>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+        gameTimer = Time.time;
+
+        if(gameTimer > maxTime)
+        {
+            //you loose
+        }
+
+        if(points >= maxPoints)
+        {
+            //you win
+        }
 	}
 
     private void FixedUpdate()
