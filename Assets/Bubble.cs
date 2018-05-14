@@ -15,10 +15,7 @@ public class Bubble : MonoBehaviour
     private void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        color = render.material.color;
-
         InitColor();
-
         gm.all_bubbles.Add(this);
     }
 
@@ -37,6 +34,7 @@ public class Bubble : MonoBehaviour
     {
         int rnd = Random.RandomRange(0, 4);
         color = gm.colors[rnd];
+        render.material.color = color;
     }
 
 }
