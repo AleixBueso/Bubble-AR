@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour {
     {
         for(int i = 0; i < all_bubbles.Count; i++)
         {
-            CheckTrippleBubble(all_bubbles[i]);
+            //CheckTrippleBubble(all_bubbles[i]);
         }
     }
 

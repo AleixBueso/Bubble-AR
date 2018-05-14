@@ -7,12 +7,14 @@ public class Shooter : MonoBehaviour {
     [SerializeField] Transform bubble;
     private Transform spawnPosition;
 
+    public GameObject center;
+
     float count = 0;
 	
 	// Update is called once per frame
 	void Update () {
 
-        count = Time.deltaTime;
+        count += Time.deltaTime;
 
         if(count > 2)
         {
@@ -26,7 +28,7 @@ public class Shooter : MonoBehaviour {
 
     private void CreateBubble()
     {
-        GameObject go = Instantiate(bubble, transform.position, transform.rotation).gameObject;
+        GameObject go = Instantiate(bubble, transform.position, transform.rotation, center.transform).gameObject;
         go.GetComponent<Rigidbody>().AddForce(transform.forward, ForceMode.Impulse);
     }
 }

@@ -22,6 +22,11 @@ public class Bubble : MonoBehaviour
         gm.all_bubbles.Add(this);
     }
 
+    private void FixedUpdate()
+    {
+        transform.localPosition = new Vector3(transform.localPosition.x, 0, transform.localPosition.z);
+    }
+
     public Collider[] GetBubbleColliders()
     {
         Collider[] ret = Physics.OverlapSphere(transform.position, radius);
