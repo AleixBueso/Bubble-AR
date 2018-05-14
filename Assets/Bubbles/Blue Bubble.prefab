@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 0, g: 0, b: 0, a: 0}
-  radius: 0.5
+  radius: 0.1
   render: {fileID: 23594933264393084}
   col: {fileID: 135281262375202862}
 --- !u!135 &135281262375202862

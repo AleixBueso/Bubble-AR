@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -11,6 +12,11 @@ public class GameManager : MonoBehaviour {
     public float gameTimer;
     public float maxTime;
     public int maxPoints;
+
+    public GameObject bubblePop;
+    public Text scoreText;
+
+    public GameObject center;
 
     public Color[] colors;
 
@@ -88,7 +94,17 @@ public class GameManager : MonoBehaviour {
         all_bubbles.Remove(b);
         all_bubbles.Remove(c);
 
-        points += 10;
+        points += 100;
+        scoreText.text = points.ToString();
+        scoreText.GetComponent<Animation>().Play();
+
+        GameObject BPop1 = Instantiate(bubblePop, a.transform);
+        GameObject BPop2 = Instantiate(bubblePop, b.transform);
+        GameObject BPop3 = Instantiate(bubblePop, c.transform);
+
+        Destroy(BPop1, 1.5f);
+        Destroy(BPop2, 1.5f);
+        Destroy(BPop3, 1.5f);
 
         a.gameObject.SetActive(false);
         b.gameObject.SetActive(false);
@@ -97,5 +113,7 @@ public class GameManager : MonoBehaviour {
         Destroy(a);
         Destroy(b);
         Destroy(c);
+
+        center.GetComponent<Animation>().Play();
     }
 }
