@@ -6,14 +6,24 @@ public class Shooter : MonoBehaviour {
 
     [SerializeField] Transform bubble;
     private Transform spawnPosition;
+
+    float count = 0;
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-		
-        if(Input.GetButtonUp("Fire1"))
+	void Update () {
+
+        count = Time.deltaTime;
+
+
+        if(count > 2)
         {
-            CreateBubble();
+            if (Input.GetButtonUp("Fire1"))
+            {
+                CreateBubble();
+                count = 0;
+            }
         }
+       
 	}
 
     private void CreateBubble()
