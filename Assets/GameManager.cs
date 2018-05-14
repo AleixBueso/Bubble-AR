@@ -45,9 +45,12 @@ public class GameManager : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        for(int i = 0; i < all_bubbles.Count; i++)
+        if (all_bubbles.Count >= 3)
         {
-            CheckTrippleBubble(all_bubbles[i]);
+            for (int i = 0; i < all_bubbles.Count; i++)
+            {
+                CheckTrippleBubble(all_bubbles[i]);
+            }
         }
     }
 
@@ -71,7 +74,7 @@ public class GameManager : MonoBehaviour {
                         if (cols_x1[j].tag == "Bubble")
                         {
                             Bubble x2 = cols[j].gameObject.GetComponent<Bubble>();
-                            if (x2.color == x1.color && x2 != b)
+                            if (x2.color == x1.color && x2 != b && x2 != x1)
                             {
                                 PopSerie(b, x1, x2);
                             }
