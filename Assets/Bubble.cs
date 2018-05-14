@@ -27,7 +27,6 @@ public class Bubble : MonoBehaviour
         
         List<Bubble> ret = new List<Bubble>();
         Collider[] cols = Physics.OverlapSphere(transform.position, radius);
-        Debug.DrawLine(cols[0].transform.position, new Vector3(cols[0].transform.position.x + radius, cols[0].transform.position.y, cols[0].transform.position.z));
 
 
         for (int i = 0; i < cols.Length; i++)
@@ -35,8 +34,7 @@ public class Bubble : MonoBehaviour
 
             if (cols[i].gameObject.tag == "Bubble" && cols[i].gameObject != this.gameObject)
             {
-                //if (gm.all_bubbles.Exists(cols[i].GetComponent<Bubble>())
-                        ret.Add(cols[i].GetComponent<Bubble>());
+                ret.Add(cols[i].GetComponent<Bubble>());
             }
         }
 

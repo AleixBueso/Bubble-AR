@@ -57,9 +57,6 @@ public class GameManager : MonoBehaviour {
 
     private bool CheckTrippleBubble(Bubble b)
     {
-        if (b == null)
-            return false;
-
        List<Bubble> colBubbles =  b.GetBubbleColliders();
 
         for(int i = 0; i < colBubbles.Count; i++)
@@ -75,7 +72,7 @@ public class GameManager : MonoBehaviour {
                         if (x2.color == x1.color && x2 != b && x2 != x1)
                         {
                             PopSerie(b, x1, x2);
-                        return true;
+                            return true;
                         }
                     }
                 }
@@ -93,8 +90,12 @@ public class GameManager : MonoBehaviour {
 
         points += 10;
 
-        DestroyImmediate(a);
-        DestroyImmediate(b);
-        DestroyImmediate(c);
+        a.gameObject.SetActive(false);
+        b.gameObject.SetActive(false);
+        c.gameObject.SetActive(false);
+
+        Destroy(a);
+        Destroy(b);
+        Destroy(c);
     }
 }
