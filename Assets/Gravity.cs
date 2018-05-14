@@ -15,7 +15,7 @@ public class Gravity : MonoBehaviour {
             Vector3 forceDirection = transform.position - collider.transform.position;
 
             // apply force on target towards me
-            if(collider.GetComponent<Rigidbody>())
+            if(collider.transform.tag == "Bubble")
                 collider.GetComponent<Rigidbody>().AddForce(forceDirection.normalized * pullForce * Time.fixedDeltaTime);
         }
     }

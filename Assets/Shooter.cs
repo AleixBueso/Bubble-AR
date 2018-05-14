@@ -8,9 +8,8 @@ public class Shooter : MonoBehaviour {
     private Transform spawnPosition;
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		
-
         if(Input.GetButtonUp("Fire1"))
         {
             CreateBubble();
