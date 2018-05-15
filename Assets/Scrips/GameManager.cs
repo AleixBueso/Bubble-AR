@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour {
     public float gameTimer;
     public float maxTime;
     public int maxPoints;
+    public float countBack;
+    [SerializeField] Text timer_text;
+
 
     public GameObject bubblePop;
     public Text scoreText;
@@ -36,23 +39,28 @@ public class GameManager : MonoBehaviour {
         colors[4] = Color.cyan;
 
         all_bubbles = new List<Bubble>();
+        countBack = maxTime;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        gameTimer = Time.time;
+        gameTimer += Time.deltaTime;
+        countBack -= Time.deltaTime;
+        int tmp = (int)countBack;
+        timer_text.text = tmp.ToString() + "s";
 
         if(gameTimer > maxTime)
         {
-            //you loose
+            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("loose");
+
         }
 
-        if(points >= maxPoints)
+        if (points >= maxPoints)
         {
-            //you win
+            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("win");
         }
-	}
+    }
 
     private void FixedUpdate()
     {
