@@ -8,5 +8,6 @@ public class Test : MonoBehaviour {
 	void Update () {
 
         transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-	}
+        transform.localPosition = new Vector3(transform.localPosition.x, 0, transform.localPosition.z);
+    }
 }
