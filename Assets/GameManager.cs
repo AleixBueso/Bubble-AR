@@ -17,10 +17,13 @@ public class GameManager : MonoBehaviour {
     public Text scoreText;
 
     public GameObject center;
+    public GameObject worldMarker;
 
     public Color[] colors;
 
     [SerializeField] AudioSource pop_bubbles_audio;
+
+    public GameObject pointsPrefab;
 
 	// Use this for initialization
 	void Awake () {
@@ -99,6 +102,7 @@ public class GameManager : MonoBehaviour {
         points += 100;
         scoreText.text = points.ToString();
         scoreText.GetComponent<Animation>().Play();
+        Instantiate(pointsPrefab, b.transform.position, Quaternion.identity, worldMarker.transform);
 
         GameObject BPop1 = Instantiate(bubblePop, a.transform);
         GameObject BPop2 = Instantiate(bubblePop, b.transform);
