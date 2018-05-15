@@ -7,6 +7,7 @@ public class Shooter : MonoBehaviour {
 
     [SerializeField] Transform bubble;
     [SerializeField] Transform spawnPosition;
+    [SerializeField] AudioSource shoot_audio;
     public GameObject cannon;
 
     public GameObject bubblesParent;
@@ -34,6 +35,7 @@ public class Shooter : MonoBehaviour {
         {
             if (Input.GetButtonUp("Fire1"))
             {
+                shoot_audio.Play();
                 cannon.GetComponent<Animation>().Play();
                 CreateBubble();
                 count = 0;
@@ -48,7 +50,7 @@ public class Shooter : MonoBehaviour {
     private void CreateBubble()
     {
         GameObject go = Instantiate(bubble, spawnPosition.position, transform.rotation, bubblesParent.transform).gameObject;
-        go.GetComponent<Rigidbody>().AddForce(transform.forward, ForceMode.Impulse);
+        //go.GetComponent<Rigidbody>().AddForce(transform.forward, ForceMode.Impulse);
         go.GetComponent<MeshRenderer>().material.color = nextColor;
         go.GetComponent<Bubble>().color = nextColor;
     }

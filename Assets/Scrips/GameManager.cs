@@ -109,8 +109,6 @@ public class GameManager : MonoBehaviour {
         GameObject BPop3 = Instantiate(bubblePop, c.transform);
 
         pop_bubbles_audio.Play();
-        pop_bubbles_audio.PlayDelayed(0.5f);
-        pop_bubbles_audio.PlayDelayed(1.0f);
 
 
         Destroy(BPop1, 1.5f);

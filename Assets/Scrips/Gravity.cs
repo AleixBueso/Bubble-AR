@@ -13,7 +13,7 @@ public class Gravity : MonoBehaviour {
         foreach (Collider collider in Physics.OverlapSphere(transform.position, pullRadius)) {
             // calculate direction from target to me
             Vector3 forceDirection = transform.position - collider.transform.position;
-
+            Debug.Log(forceDirection);
             // apply force on target towards me
             if(collider.transform.tag == "Bubble")
                 collider.GetComponent<Rigidbody>().AddForce(forceDirection.normalized * pullForce * Time.fixedDeltaTime);
