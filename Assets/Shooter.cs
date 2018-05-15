@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shooter : MonoBehaviour {
 
     [SerializeField] Transform bubble;
-    private Transform spawnPosition;
+    [SerializeField] Transform spawnPosition;
     public GameObject cannon;
 
     public GameObject bubblesParent;
@@ -30,7 +30,7 @@ public class Shooter : MonoBehaviour {
 
     private void CreateBubble()
     {
-        GameObject go = Instantiate(bubble, transform.position, transform.rotation, bubblesParent.transform).gameObject;
+        GameObject go = Instantiate(bubble, spawnPosition.position, transform.rotation, bubblesParent.transform).gameObject;
         go.GetComponent<Rigidbody>().AddForce(transform.forward, ForceMode.Impulse);
     }
 }

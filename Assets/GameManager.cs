@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour {
 
     public Color[] colors;
 
+    [SerializeField] AudioSource pop_bubbles_audio;
+
 	// Use this for initialization
 	void Start () {
         colors = new Color[5];
@@ -101,6 +103,11 @@ public class GameManager : MonoBehaviour {
         GameObject BPop1 = Instantiate(bubblePop, a.transform);
         GameObject BPop2 = Instantiate(bubblePop, b.transform);
         GameObject BPop3 = Instantiate(bubblePop, c.transform);
+
+        pop_bubbles_audio.Play();
+        pop_bubbles_audio.PlayDelayed(0.5f);
+        pop_bubbles_audio.PlayDelayed(1.0f);
+
 
         Destroy(BPop1, 1.5f);
         Destroy(BPop2, 1.5f);
