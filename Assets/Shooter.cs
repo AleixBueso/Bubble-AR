@@ -6,6 +6,7 @@ public class Shooter : MonoBehaviour {
 
     [SerializeField] Transform bubble;
     private Transform spawnPosition;
+    public GameObject cannon;
 
     public GameObject bubblesParent;
 
@@ -20,6 +21,7 @@ public class Shooter : MonoBehaviour {
         {
             if (Input.GetButtonUp("Fire1"))
             {
+                cannon.GetComponent<Animation>().Play();
                 CreateBubble();
                 count = 0;
             }
