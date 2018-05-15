@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="huge_zekrom_3d_pokedex_ar_code_by_nyeep-d3jkb94" size="1.000000 1.001120" />
+    <ImageTarget name="PokemonBack" size="1.000000 1.291299" />
+  </Tracking>
+</QCARConfig>
