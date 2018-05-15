@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shooter : MonoBehaviour {
 
@@ -10,10 +11,22 @@ public class Shooter : MonoBehaviour {
 
     public GameObject bubblesParent;
 
+    public GameManager gm;
+
+    Color nextColor;
+    public Image nextColorImage;
+
     float count = 0;
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void Start()
+    {
+        int rnd = Random.Range(0, 4);
+        nextColor = gm.colors[rnd];
+        nextColorImage.color = nextColor;
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         count += Time.deltaTime;
 
@@ -24,6 +37,10 @@ public class Shooter : MonoBehaviour {
                 cannon.GetComponent<Animation>().Play();
                 CreateBubble();
                 count = 0;
+
+                int rnd = Random.Range(0, 4);
+                nextColor = gm.colors[rnd];
+                nextColorImage.color = nextColor;
             }
         }     
 	}
@@ -32,5 +49,7 @@ public class Shooter : MonoBehaviour {
     {
         GameObject go = Instantiate(bubble, spawnPosition.position, transform.rotation, bubblesParent.transform).gameObject;
         go.GetComponent<Rigidbody>().AddForce(transform.forward, ForceMode.Impulse);
+        go.GetComponent<MeshRenderer>().material.color = nextColor;
+        go.GetComponent<Bubble>().color = nextColor;
     }
 }

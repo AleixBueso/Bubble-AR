@@ -13,7 +13,7 @@ public class Bubble : MonoBehaviour
     private void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        InitColor();
+        //InitColor();
         gm.all_bubbles.Add(this);
     }
 

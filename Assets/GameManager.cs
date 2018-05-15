@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] AudioSource pop_bubbles_audio;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         colors = new Color[5];
 
         colors[0] = Color.blue;
